@@ -1,0 +1,35 @@
+<div class="row h-100 justify-content-center align-items-center">
+
+  <div class="col-10 col-md-8 col-lg-6 p-3">
+    <!-- Form -->
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {autocomplete: "off" }) do |f| %>
+    <div class="form-group text-center">
+      <h4>Log in</h4>
+    </div>
+
+    <div class="form-group">
+      <%= render "users/shared/error_messages", resource: resource %>
+    </div>  
+
+    <!-- Input fields -->
+      <div class="form-group">
+        <%= f.text_field :email, autofocus: true, :class => "form-control",:placeholder=> "Enter your email", :autocomplete => "off" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.password_field :password, autocomplete: "off", :class => "form-control",:placeholder=> "Password" %>
+      </div>
+    <!-- End input fields -->
+
+      <div class="form-group">
+            <%= f.submit "Log In",:class => "btn btn-primary btn-block" %>
+      </div>
+
+      <div class="form-group text-center">
+          Don't have an account? <%= render "users/shared/links" %>
+      </div>
+  
+    <% end %>
+    <!-- Form end -->
+  </div>
+</div>

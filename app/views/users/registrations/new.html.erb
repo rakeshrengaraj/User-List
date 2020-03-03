@@ -1,0 +1,70 @@
+<div class="row h-100 justify-content-center align-items-center">
+
+  <div class="col-10 col-md-8 col-lg-6 p-3">
+    <!-- Form -->
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {autocomplete: "off" }) do |f| %>
+      <div class="form-group text-center">
+        <h4>Create a new account</h4>
+      </div>
+
+      <div class="form-group">
+        <%= render "users/shared/error_messages", resource: resource %>
+      </div>  
+
+
+      <!-- Input fields -->
+      <div class="form-group">
+        <%= f.text_field :email, autofocus: true, :class => "form-control",:placeholder=> "Enter your email", :autocomplete => "off" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.password_field :password, autocomplete: "off", :class => "form-control",:placeholder=> "Password" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control",:placeholder=> "Password Confirmation" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_field :first_name, autocomplete: "off", :class => "form-control",:placeholder=> "First Name" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_field :last_name, autocomplete: "off", :class => "form-control",:placeholder=> "Last Name" %>
+      </div>
+
+      <div class="form-group">
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">Gender :-</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label" for="user_gender_male"> Male &nbsp;&nbsp;</label>
+          <%= f.radio_button :gender, true, :class => "form-check-input mr-2" %>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label" for="user_gender_female">Female &nbsp;&nbsp;</label>
+          <%= f.radio_button :gender, false, :class => "form-check-input mr-2" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.number_field :age, :class => "form-control", :min => 0, :placeholder => "Age" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.country_select :country, {include_blank: 'Select a country'}, {class: "form-control custom-select my-1 mr-sm-2"} %>
+      </div>
+      <!-- End input fields -->
+
+      <div class="form-group">
+        <%= f.submit "Sign Up",:class => "btn btn-primary btn-block" %>
+      </div>
+
+      <div class="form-group text-center">
+        Have an account? <%= render "users/shared/links" %>
+      </div>
+
+    <% end %>
+    <!-- Form end -->
+  </div>
+</div>
